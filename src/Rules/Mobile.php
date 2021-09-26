@@ -57,8 +57,9 @@ class Mobile implements Rule
         return 'The :attribute must be a valid mobile phone number';
     }
 
-    private function getPattern($locale) {
-        if (!array_key_exists($locale, $this->patterns)) {
+    private function getPattern($locale)
+    {
+        if (! array_key_exists($locale, $this->patterns)) {
             throw new \RuntimeException(sprintf('Missing pattern for "%s" locale', $locale));
         }
 
