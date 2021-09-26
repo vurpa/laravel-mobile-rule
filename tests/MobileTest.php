@@ -19,3 +19,8 @@ it('validates with multiple locales', function () {
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '0700000000'))->toBeTrue();
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '40000000'))->toBeTrue();
 });
+
+it('throws exception when missing pattern for locale', function () {
+    expect(fn () => (new Mobile(locale: 'foo'))->passes('mobile', '0700000000'))->toThrow(RuntimeException::class, 'Missing pattern for "foo" locale');
+    expect(fn () => (new Mobile(locale: ['nb-NO', 'bar']))->passes('mobile', '0700000000'))->toThrow(RuntimeException::class, 'Missing pattern for "bar" locale');
+});

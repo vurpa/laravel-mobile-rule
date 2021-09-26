@@ -32,7 +32,7 @@ class Mobile implements Rule
     {
         if (is_array($this->locale)) {
             foreach ($this->locale as $locale) {
-                $pattern = $this->patterns[$locale];
+                $pattern = $this->getPattern($locale);
 
                 if (preg_match($pattern, $value) === 1) {
                     return true;
@@ -42,7 +42,7 @@ class Mobile implements Rule
             return false;
         }
 
-        $pattern = $this->patterns[$this->locale];
+        $pattern = $this->getPattern($this->locale);
 
         return preg_match($pattern, $value) === 1;
     }
@@ -55,5 +55,13 @@ class Mobile implements Rule
     public function message()
     {
         return 'The :attribute must be a valid mobile phone number';
+    }
+
+    private function getPattern($locale) {
+        if (!array_key_exists($locale, $this->patterns)) {
+            throw new \RuntimeException(sprintf('Missing pattern for "%s" locale', $locale));
+        }
+
+        return $this->patterns[$locale];
     }
 }
