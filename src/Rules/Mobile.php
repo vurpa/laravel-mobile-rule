@@ -131,6 +131,16 @@ class Mobile implements Rule
     public function __construct(mixed $locale = null)
     {
         $this->locale = $locale;
+
+        // Aliases.
+        $this->patterns['en-CA'] = $this->patterns['en-US'];
+        $this->patterns['fr-CA'] = $this->patterns['en-CA'];
+        $this->patterns['fr-BE'] = $this->patterns['nl-BE'];
+        $this->patterns['zh-HK'] = $this->patterns['en-HK'];
+        $this->patterns['zh-MO'] = $this->patterns['en-MO'];
+        $this->patterns['ga-IE'] = $this->patterns['en-IE'];
+        $this->patterns['fr-CH'] = $this->patterns['de-CH'];
+        $this->patterns['it-CH'] = $this->patterns['fr-CH'];
     }
 
     /**

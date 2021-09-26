@@ -31,6 +31,10 @@ it('validates any locale', function () {
     expect((new Mobile())->passes('mobile', '40000000'))->toBeTrue();
 });
 
+it('validates aliases', function () {
+    expect((new Mobile(locale: 'en-CA'))->passes('mobile', '4155552671'))->toBeTrue();
+});
+
 it('validates with multiple locales', function () {
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '0700000000'))->toBeTrue();
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '40000000'))->toBeTrue();
