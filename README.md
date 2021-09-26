@@ -28,6 +28,21 @@ public function rules()
 }
 ```
 
+Multiple locales:
+
+```php
+// in a `FormRequest`
+
+use Vurpa\MobileRule\Rules\Mobile;
+
+public function rules()
+{
+    return [
+        'mobile' => ['required', new Mobile(locale: ['sv-SE', 'nb-NO'])],
+    ];
+}
+```
+
 ## Testing
 
 ```bash

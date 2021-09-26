@@ -14,3 +14,8 @@ it('validates sv-SE', function ($input, $expected) {
     ['0710000000', false],
     ['0780000000', false],
 ]);
+
+it('validates with multiple locales', function () {
+    expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '0700000000'))->toBeTrue();
+    expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '40000000'))->toBeTrue();
+});
