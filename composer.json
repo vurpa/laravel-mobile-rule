@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "vurpa/laravel-mobile-rule",
+    "description": "Validate mobile numbers",
     "keywords": [
-        ":vendor_name",
+        "vurpa",
         "laravel",
-        ":package_slug"
+        "laravel-mobile-rule"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/vurpa/laravel-mobile-rule",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "john",
+            "email": "js@thesc.se",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Vurpa\\MobileRule\\": "src",
+            "Vurpa\\MobileRule\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Vurpa\\MobileRule\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Vurpa\\MobileRule\\MobileRuleServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "MobileRule": "Vurpa\\MobileRule\\MobileRuleFacade"
             }
         }
     },

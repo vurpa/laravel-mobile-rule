@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Vurpa\MobileRule\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MobileRuleCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-mobile-rule';
 
     public $description = 'My command';
 
