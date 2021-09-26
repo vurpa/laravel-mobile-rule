@@ -15,6 +15,8 @@ composer require vurpa/laravel-mobile-rule
 
 ## Usage
 
+For a specific locale:
+
 ```php
 // in a `FormRequest`
 

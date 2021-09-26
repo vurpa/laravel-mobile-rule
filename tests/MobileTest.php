@@ -15,6 +15,17 @@ it('validates sv-SE', function ($input, $expected) {
     ['0780000000', false],
 ]);
 
+it('validates nb-NO', function ($input, $expected) {
+    expect((new Mobile(locale: 'nb-NO'))->passes('mobile', $input))->toBe($expected);
+})->with([
+    ['+4790000000', true],
+    ['+4740000000', true],
+    ['4740000000', true],
+    ['40000000', true],
+    ['90000000', true],
+    ['00000000', false],
+]);
+
 it('validates with multiple locales', function () {
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '0700000000'))->toBeTrue();
     expect((new Mobile(locale: ['sv-SE', 'nb-NO']))->passes('mobile', '40000000'))->toBeTrue();
