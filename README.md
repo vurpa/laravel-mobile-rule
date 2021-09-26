@@ -15,6 +15,21 @@ composer require vurpa/laravel-mobile-rule
 
 ## Usage
 
+Any locale:
+
+```php
+// in a `FormRequest`
+
+use Vurpa\MobileRule\Rules\Mobile;
+
+public function rules()
+{
+    return [
+        'mobile' => ['required', new Mobile()],
+    ];
+}
+```
+
 For a specific locale:
 
 ```php

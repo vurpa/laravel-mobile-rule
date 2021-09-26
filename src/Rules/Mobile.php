@@ -128,9 +128,9 @@ class Mobile implements Rule
     /**
      * @param array|string|null $locale
      */
-    public function __construct(mixed $locale)
+    public function __construct(mixed $locale = null)
     {
-        $this->locale = $locale ?? 'sv-SE';
+        $this->locale = $locale;
     }
 
     /**
@@ -146,6 +146,16 @@ class Mobile implements Rule
             foreach ($this->locale as $locale) {
                 $pattern = $this->getPattern($locale);
 
+                if (preg_match($pattern, $value) === 1) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if (is_null($this->locale)) {
+            foreach ($this->patterns as $pattern) {
                 if (preg_match($pattern, $value) === 1) {
                     return true;
                 }
